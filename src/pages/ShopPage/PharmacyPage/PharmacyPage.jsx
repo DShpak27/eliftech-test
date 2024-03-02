@@ -1,21 +1,25 @@
-import { Section, Title, CardList, Card } from "./PharmacyPage.styled.jsx";
+import { Section } from "../../../components/common/Section";
+import { Title } from "../../../components/common/Title";
+import { ProductList } from "../../../components/common/ProductList";
+import { ProductCard } from "../../../components/common/ProductCard";
 
 export default function PharmacyPage() {
     return (
         <Section>
-            <Title>PharmacyPage-911 assortment:</Title>
-            <CardList>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-            </CardList>
+            <Title>Mister-Blister assortment:</Title>
+            <ProductList>
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+            </ProductList>
         </Section>
     );
 }

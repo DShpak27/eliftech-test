@@ -1,21 +1,25 @@
-import { Section, Title, CardList, Card } from "./ZdravitsaPage.styled.jsx";
+import { Section } from "../../../components/common/Section";
+import { Title } from "../../../components/common/Title";
+import { ProductList } from "../../../components/common/ProductList";
+import { ProductCard } from "../../../components/common/ProductCard";
 
-export default function PharmacyPage() {
+export default function ZdravitsaPage() {
     return (
         <Section>
-            <Title>Zdravitsa assortment:</Title>
-            <CardList>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-            </CardList>
+            <Title>Mister-Blister assortment:</Title>
+            <ProductList>
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+                <ProductCard />
+            </ProductList>
         </Section>
     );
 }

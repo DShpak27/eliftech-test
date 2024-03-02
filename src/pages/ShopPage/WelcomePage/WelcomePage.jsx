@@ -1,4 +1,6 @@
-import { Section, Title, Text } from "./WelcomePage.styled.jsx";
+import { Section } from "../../../components/common/Section";
+import { Title } from "../../../components/common/Title";
+import { Text } from "./WelcomePage.styled.jsx";
 
 export default function WelcomePage() {
     return (
