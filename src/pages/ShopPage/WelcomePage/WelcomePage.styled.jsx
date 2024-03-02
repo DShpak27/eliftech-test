@@ -1,19 +1,19 @@
 import styled from "@emotion/styled";
 
-export const List = styled.ul`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow-y: auto;
-    gap: 5px;
+export const Section = styled.section`
+    padding: 20px 25px;
+    border-radius: 10px;
+    flex-grow: 1;
+
+    background-color: #e0e8f6;
 `;
-export const Wrapper = styled.section`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+export const Title = styled.h1`
+    margin-bottom: 16px;
+
+    text-align: center;
+    font-size: 22px;
 `;
-export const Card = styled.li`
-    width: 300px;
-    height: 300px;
-    background-color: black;
+export const Text = styled.p`
+    font-size: 16px;
+    text-align: center;
 `;

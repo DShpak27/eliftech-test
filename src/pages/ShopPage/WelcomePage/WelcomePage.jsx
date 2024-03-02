@@ -1,21 +1,10 @@
-import { Card, Wrapper, List } from "./WelcomePage.styled.jsx";
+import { Section, Title, Text } from "./WelcomePage.styled.jsx";
 
 export default function WelcomePage() {
     return (
-        <Wrapper>
-            <h2>Заголовок</h2>
-            <List>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-            </List>
-        </Wrapper>
+        <Section>
+            <Title>Welcome to the MedMarket.ua! </Title>
+            <Text>Choose your pharmacy and enjoy a personalized shopping experience.</Text>
+        </Section>
     );
 }

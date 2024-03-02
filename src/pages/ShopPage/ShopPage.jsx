@@ -6,7 +6,7 @@ import { PageContent } from "./ShopPage.styled.jsx";
 
 export default function ShopPage() {
     return (
-        <Container style={{ height: "100%" }}>
+        <Container style={{ display: "flex", flexDirection: "column" }}>
             <PageContent>
                 <SideBar />
                 <Suspense>
