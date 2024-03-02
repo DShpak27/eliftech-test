@@ -5,7 +5,7 @@ export const PageContent = styled.div`
     flex-direction: column;
     row-gap: 30px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 640px) {
         display: flex;
         flex-direction: row;
         height: 100%;
