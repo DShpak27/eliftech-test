@@ -14,8 +14,8 @@ export const SideMenu = styled.aside`
 
     background-color: #e0e8f6;
 
-    @media screen and (min-width: 640px) {
-        width: 640;
+    @media screen and (min-width: 768px) {
+        width: 360px;
     }
 `;
 

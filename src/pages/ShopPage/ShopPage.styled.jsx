@@ -10,5 +10,6 @@ export const PageContent = styled.div`
         flex-direction: row;
         height: 100%;
         width: 100%;
+        column-gap: 16px;
     }
 `;
