@@ -14,11 +14,6 @@ export default function ZdravitsaPage() {
                 <ProductCard />
                 <ProductCard />
                 <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
             </ProductList>
         </Section>
     );

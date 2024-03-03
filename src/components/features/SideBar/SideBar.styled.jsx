@@ -14,12 +14,15 @@ export const SideMenu = styled.aside`
 
     background-color: #e0e8f6;
 
-    @media screen and (min-width: 640px) {
-        width: 266px;
+    @media screen and (min-width: 768px) {
+        width: 260px;
     }
-    /* @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1024px) {
         width: 360px;
-    } */
+    }
+    @media screen and (min-width: 1440px) {
+        width: 320px;
+    }
 `;
 
 export const MenuTitle = styled.h2`

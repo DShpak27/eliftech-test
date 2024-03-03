@@ -14,11 +14,6 @@ export default function MisterBlisterPage() {
                 <ProductCard />
                 <ProductCard />
                 <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
             </ProductList>
         </Section>
     );
