@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import SideBar from "../../components/features/SideBar";
 import { Container } from "../../components/common/Container";
-import { PageContent } from "./ShopPage.styled.jsx";
+import { ShopContent } from "./ShopPage.styled.jsx";
 
 export default function ShopPage() {
     return (
@@ -12,12 +12,12 @@ export default function ShopPage() {
                 overflowY: "auto",
             }}
         >
-            <PageContent>
+            <ShopContent>
                 <SideBar />
                 <Suspense>
                     <Outlet />
                 </Suspense>
-            </PageContent>
+            </ShopContent>
         </Container>
     );
 }

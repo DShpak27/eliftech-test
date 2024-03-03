@@ -48,30 +48,28 @@ export const MenuLink = styled(NavLink)`
     width: 100%;
 
     padding: 14px 16px;
-    border-radius: 10px;
+    border-radius: 4px;
 
     color: white;
-    background-color: #4a5ed1;
+    background-color: #1976d2;
 
     text-align: center;
     text-decoration: none;
 
     font-size: 18px;
 
-    transition: all 0.2 ease;
-    &:not(disabled) {
-        &:hover {
-            background-color: #404dac;
-        }
+    transition: all 250ms ease;
+    &:hover {
+        background-color: #1565c0;
     }
 
     &.active {
-        color: yellow;
-        background-color: #404dac;
-    }
+        color: #fbe0a5;
+        /* color: yellow; */
+        background-color: #1257a5;
 
-    &:disabled {
-        opacity: 0.3;
-        pointer-events: none;
+        &:hover {
+            background-color: #1565c0;
+        }
     }
 `;

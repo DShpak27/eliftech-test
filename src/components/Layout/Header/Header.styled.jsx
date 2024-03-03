@@ -29,9 +29,9 @@ export const Link = styled(NavLink)`
     column-gap: 5px;
 
     padding: 0px 18px;
-    border-radius: 20px;
+    border-radius: 4px;
 
-    background-color: #4a5ed1;
+    background-color: #1976d2;
     color: #fff;
 
     font-size: 16px;
@@ -44,13 +44,17 @@ export const Link = styled(NavLink)`
 
     cursor: pointer;
 
-    &:hover,
-    &:focus {
-        background-color: #404dac;
+    &:hover {
+        background-color: #1565c0;
     }
+
     &.active {
-        color: yellow;
-        background-color: #404dac;
+        color: #fbe0a5;
+        background-color: #1257a5;
+
+        &:hover {
+            background-color: #1565c0;
+        }
     }
 
     @media screen and (min-width: 768px) {

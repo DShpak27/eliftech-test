@@ -3,6 +3,7 @@
 
 body {
     font-family: Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    color: rgba(0, 0, 0, 0.7)
 }
 
 #root {
@@ -31,6 +32,7 @@ ol {
 
 img {
     display: block;
-    max-width: 100%;
+    width: 100%;
+    /* max-width: 100%; */
     height: auto;
 }

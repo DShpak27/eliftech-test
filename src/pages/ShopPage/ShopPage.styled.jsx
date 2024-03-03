@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const PageContent = styled.div`
+export const ShopContent = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 30px;

@@ -1,12 +1,12 @@
-import { Section } from "../../../components/common/Section";
+import { ShopSection } from "../../../components/common/ShopSection";
 import { Title } from "../../../components/common/Title";
 import { ProductList } from "../../../components/common/ProductList";
-import { ProductCard } from "../../../components/common/ProductCard";
+import ProductCard from "../../../components/features/ProductCard";
 
 export default function PharmacyPage() {
     return (
-        <Section>
-            <Title>Mister-Blister assortment:</Title>
+        <ShopSection>
+            <Title>Pharmacy-911 assortment:</Title>
             <ProductList>
                 <ProductCard />
                 <ProductCard />
@@ -15,6 +15,6 @@ export default function PharmacyPage() {
                 <ProductCard />
                 <ProductCard />
             </ProductList>
-        </Section>
+        </ShopSection>
     );
 }

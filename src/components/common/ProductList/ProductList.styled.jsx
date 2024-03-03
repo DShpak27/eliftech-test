@@ -7,16 +7,12 @@ export const ProductList = styled.ul`
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
 
-    gap: 10px;
+    gap: 14px;
 
     padding-right: 25px;
     padding-left: 25px;
     margin-right: -25px;
     margin-left: -25px;
-
-    /* display: flex;
-    flex-direction: column;
-    gap: 10px; */
 
     @media screen and (min-width: 768px) {
         grid-template-columns: 1fr 1fr;
@@ -33,4 +29,8 @@ export const ProductList = styled.ul`
         gap: 8px;
         overflow-y: auto;
     } */
+
+    /* display: flex;
+    flex-direction: column;
+    gap: 10px; */
 `;
