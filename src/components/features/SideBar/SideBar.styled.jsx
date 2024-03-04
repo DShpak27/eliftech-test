@@ -36,22 +36,24 @@ export const MenuList = styled.ul`
     display: flex;
 
     flex-direction: column;
-    row-gap: 12px;
+    row-gap: 14px;
 `;
 
 export const MenuItem = styled.li`
     display: block;
     width: 100%;
+
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 `;
 export const MenuLink = styled(NavLink)`
     display: block;
     width: 100%;
 
-    padding: 14px 16px;
+    padding: 12px 16px;
     border-radius: 4px;
 
     color: white;
-    background-color: #1976d2;
+    background-color: #4a83bc;
 
     text-align: center;
     text-decoration: none;
@@ -60,16 +62,14 @@ export const MenuLink = styled(NavLink)`
 
     transition: all 250ms ease;
     &:hover {
-        background-color: #1565c0;
+        background-color: #285c98;
     }
 
     &.active {
-        color: #fbe0a5;
-        /* color: yellow; */
-        background-color: #1257a5;
+        background-color: #285c98;
 
         &:hover {
-            background-color: #1565c0;
+            background-color: #285c98;
         }
     }
 `;

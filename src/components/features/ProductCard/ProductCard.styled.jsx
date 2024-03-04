@@ -13,6 +13,7 @@ export const CardBox = styled.article`
     border: 1px solid #caced1a0;
 
     background-color: #edf2f7;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
 `;
 export const ImageHolder = styled.div`
     width: 100%;
@@ -23,7 +24,6 @@ export const ImageHolder = styled.div`
     border-radius: 10px;
     background-color: white;
     border: 1px solid #e1e8ecdc;
-    /* border: 1px solid #e6eaecdc; */
 
     overflow: hidden;
 `;

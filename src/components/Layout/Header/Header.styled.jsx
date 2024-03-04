@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
-import { TiShoppingCart } from "react-icons/ti";
+import { TiShoppingCart as Icon } from "react-icons/ti";
 
 export const SiteHeader = styled.header`
     padding-top: 25px;
@@ -31,7 +31,8 @@ export const Link = styled(NavLink)`
     padding: 0px 18px;
     border-radius: 4px;
 
-    background-color: #1976d2;
+    background-color: #4a83bc;
+
     color: #fff;
 
     font-size: 16px;
@@ -45,15 +46,14 @@ export const Link = styled(NavLink)`
     cursor: pointer;
 
     &:hover {
-        background-color: #1565c0;
+        background-color: #285c98;
     }
 
     &.active {
-        color: #fbe0a5;
-        background-color: #1257a5;
+        background-color: #285c98;
 
         &:hover {
-            background-color: #1565c0;
+            background-color: #285c98;
         }
     }
 
@@ -69,7 +69,7 @@ export const LinkText = styled.span`
     }
 `;
 
-export const CartIcon = styled(TiShoppingCart)`
+export const CartIcon = styled(Icon)`
     font-size: 24px;
 
     @media screen and (min-width: 768px) {

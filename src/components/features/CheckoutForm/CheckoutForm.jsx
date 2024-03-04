@@ -1,8 +1,7 @@
-import { Form } from "./CheckoutForm.styled.jsx";
+import { Form, SubmitButton, SummaryAndSubmit, TotalPrice } from "./CheckoutForm.styled.jsx";
 import CustomerDetails from "./CustomerDetails";
 import * as yup from "yup";
 import Cart from "./Cart";
-// import SummaryAndSubmit from "./SummaryAndSubmit";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -47,7 +46,10 @@ export default function CheckoutForm() {
         <Form onSubmit={handleSubmit(submitHandler)}>
             <CustomerDetails register={register} errors={errors} />
             <Cart />
-            {/* <SummaryAndSubmit /> */}
+            <SummaryAndSubmit>
+                <TotalPrice>Total price: 999 ₴</TotalPrice>
+                <SubmitButton type="submit">Submit</SubmitButton>
+            </SummaryAndSubmit>
         </Form>
     );
 }

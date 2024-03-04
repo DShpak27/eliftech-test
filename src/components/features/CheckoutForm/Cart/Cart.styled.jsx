@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { TextField } from "@mui/material";
+import { MdDeleteForever as Icon } from "react-icons/md";
 
 export const SelectedProducts = styled.ul`
     display: grid;
@@ -14,6 +15,8 @@ export const SelectedProducts = styled.ul`
 `;
 
 export const ProductItem = styled.li`
+    position: relative;
+
     display: flex;
     gap: 20px;
 
@@ -70,5 +73,25 @@ export const QuantitySelector = styled(TextField)`
     .MuiInputBase-input.MuiFilledInput-input {
         padding-top: 10px;
         padding-bottom: 10px;
+    }
+`;
+
+export const DeleteButton = styled.button`
+    position: absolute;
+    display: block;
+
+    top: 10px;
+    right: 5px;
+
+    background-color: transparent;
+    border: none;
+`;
+export const DeleteIcon = styled(Icon)`
+    font-size: 24px;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        color: #d15757;
     }
 `;
