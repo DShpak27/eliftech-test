@@ -35,7 +35,7 @@ export default function CheckoutForm() {
         formState: { errors },
     } = useForm({
         resolver: yupResolver(validationSchema),
-        mode: "onChange",
+        mode: "onTouched",
     });
 
     const submitHandler = (data) => {

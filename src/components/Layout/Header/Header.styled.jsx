@@ -29,7 +29,7 @@ export const Link = styled(NavLink)`
     column-gap: 5px;
 
     padding: 0px 18px;
-    border-radius: 4px;
+    border-radius: 10px;
 
     background-color: #4a83bc;
 

@@ -5,15 +5,16 @@ export const Form = styled.form`
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
-    row-gap: 30px;
+    row-gap: 20px;
 
     @media screen and (min-width: 768px) {
         height: 100%;
         width: 100%;
 
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 60% 1fr;
         grid-template-rows: auto auto;
-        gap: 16px;
+        column-gap: 10px;
+        row-gap: 10px;
     }
 `;
 export const SummaryAndSubmit = styled.div`
@@ -22,23 +23,32 @@ export const SummaryAndSubmit = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    column-gap: 40px;
+
+    column-gap: 16px;
+
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(183, 174, 174, 0.35);
+    background-color: #83b9ee40;
+
+    @media screen and (min-width: 768px) {
+        grid-column: 2/3;
+    }
 `;
 export const TotalPrice = styled.span`
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 `;
 
 export const SubmitButton = styled.button`
     border: 1px solid rgba(183, 174, 174, 0.35);
 
-    width: 100%;
+    max-width: 130px;
+    min-width: 90px;
     padding: 8px 16px;
-
-    border-radius: 4px;
+    text-align: center;
 
     color: rgba(0, 0, 0, 0.8);
-    background-color: #c9dcf4;
 
     text-align: center;
 
@@ -49,8 +59,8 @@ export const SubmitButton = styled.button`
 
     background-color: #f7b31f;
     color: #fff;
-    border: 1px solid #e1e8ecdc;
-    border-radius: 4px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.06);
 
     transition: all 250ms;
 

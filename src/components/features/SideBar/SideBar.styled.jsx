@@ -27,6 +27,7 @@ export const SideMenu = styled.aside`
 
 export const MenuTitle = styled.h2`
     padding-top: 6px;
+    padding-bottom: 6px;
 
     text-align: center;
     font-size: 18px;
@@ -40,17 +41,15 @@ export const MenuList = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-    display: block;
-    width: 100%;
-
+    border-radius: 10px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    overflow: hidden;
 `;
 export const MenuLink = styled(NavLink)`
     display: block;
     width: 100%;
 
     padding: 12px 16px;
-    border-radius: 4px;
 
     color: white;
     background-color: #4a83bc;
