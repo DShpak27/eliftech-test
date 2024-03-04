@@ -1,8 +1,6 @@
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
-import ContactForm from "../../components/features/ContactForm";
 import { Container } from "../../components/common/Container";
-import { CartContent } from "./ShopPage.styled.jsx";
+import { CartSection } from "./CartPage.styled.jsx";
+import CheckoutForm from "../../components/features/CheckoutForm";
 
 export default function CartPage() {
     return (
@@ -12,12 +10,9 @@ export default function CartPage() {
                 overflowY: "auto",
             }}
         >
-            <CartContent>
-                <ContactForm />
-                <Suspense>
-                    <Outlet />
-                </Suspense>
-            </CartContent>
+            <CartSection>
+                <CheckoutForm />
+            </CartSection>
         </Container>
     );
 }

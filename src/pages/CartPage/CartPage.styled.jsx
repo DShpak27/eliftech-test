@@ -1,18 +1,12 @@
 import styled from "@emotion/styled";
 
-export const CartContent = styled.div`
+
+export const CartSection = styled.section`
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    row-gap: 30px;
+    min-height: 100%;
 
-    @media screen and (min-width: 768px) {
-        height: 100%;
-        width: 100%;
+    padding: 20px 25px;
+    border-radius: 10px;
 
-        grid-template-columns: auto 1fr;
-        grid-template-rows: auto auto;
-        gap: 16px;
-    }
+    background-color: #e0e8f6;
 `;

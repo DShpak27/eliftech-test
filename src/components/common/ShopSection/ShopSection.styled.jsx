@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const ShopShopSection = styled.ShopSection`
+export const ShopSection = styled.section`
     padding: 20px 25px;
     border-radius: 10px;
 
