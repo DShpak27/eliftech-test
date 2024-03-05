@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import { useDispatch } from "react-redux";
+import { deleteItem, changeQuantity } from "../../../../redux/cart/slice.js";
 import {
     SelectedProducts,
     ProductItem,
@@ -11,81 +15,60 @@ import {
     DeleteIcon,
 } from "./Cart.styled.jsx";
 
-export default function Cart() {
+export default function Cart({ products }) {
+    const dispatch = useDispatch();
+
+    const onQuantityChange = (e, id) => {
+        if (Number(e.target.value) < 1) {
+            dispatch(changeQuantity({ id, newQuantity: 1 }));
+            return;
+        }
+        dispatch(changeQuantity({ id, newQuantity: Number(e.target.value) }));
+    };
+
+    if (!products.length) {
+        return (
+            <SelectedProducts>
+                <div>Cart is empty!</div>
+            </SelectedProducts>
+        );
+    }
+
     return (
         <SelectedProducts>
-            <ProductItem>
-                <DeleteButton>
-                    <DeleteIcon />
-                </DeleteButton>
-                <ImageContainer>
-                    <img
-                        src="https://root.tblcdn.com/img/goods/0f5f3990-9bc6-40fc-bd92-feb83c45300d/1/img_0.jpg?v=AAAAAAn3YD4"
-                        alt="аспірин"
-                    />
-                </ImageContainer>
-                <ProductInfo>
-                    <Wrapper>
-                        <ItemName>Aspirin</ItemName>
-                        <PriceTag>25.60 ₴</PriceTag>
-                    </Wrapper>
-                    <QuantitySelector type="number" defaultValue={1} variant="filled" />
-                </ProductInfo>
-            </ProductItem>
-            <ProductItem>
-                <DeleteButton>
-                    <DeleteIcon />
-                </DeleteButton>
-                <ImageContainer>
-                    <img
-                        src="https://root.tblcdn.com/img/goods/0f5f3990-9bc6-40fc-bd92-feb83c45300d/1/img_0.jpg?v=AAAAAAn3YD4"
-                        alt="аспірин"
-                    />
-                </ImageContainer>
-                <ProductInfo>
-                    <Wrapper>
-                        <ItemName>Aspirin</ItemName>
-                        <PriceTag>25.60 ₴</PriceTag>
-                    </Wrapper>
-                    <QuantitySelector type="number" defaultValue={1} variant="filled" />
-                </ProductInfo>
-            </ProductItem>
-            <ProductItem>
-                <DeleteButton>
-                    <DeleteIcon />
-                </DeleteButton>
-                <ImageContainer>
-                    <img
-                        src="https://root.tblcdn.com/img/goods/0f5f3990-9bc6-40fc-bd92-feb83c45300d/1/img_0.jpg?v=AAAAAAn3YD4"
-                        alt="аспірин"
-                    />
-                </ImageContainer>
-                <ProductInfo>
-                    <Wrapper>
-                        <ItemName>Aspirin</ItemName>
-                        <PriceTag>25.60 ₴</PriceTag>
-                    </Wrapper>
-                    <QuantitySelector type="number" defaultValue={1} variant="filled" />
-                </ProductInfo>
-            </ProductItem>
-            <ProductItem>
-                <DeleteButton>
-                    <DeleteIcon />
-                </DeleteButton>
-                <ImageContainer>
-                    <img
-                        src="https://root.tblcdn.com/img/goods/0f5f3990-9bc6-40fc-bd92-feb83c45300d/1/img_0.jpg?v=AAAAAAn3YD4"
-                        alt="аспірин"
-                    />
-                </ImageContainer>
-                <ProductInfo>
-                    <Wrapper>
-                        <ItemName>Aspirin</ItemName>
-                        <PriceTag>25.60 ₴</PriceTag>
-                    </Wrapper>
-                    <QuantitySelector type="number" defaultValue={1} variant="filled" />
-                </ProductInfo>
-            </ProductItem>
+            {products.map(({ id, name, price, quantity, imageUrl }) => (
+                <ProductItem key={id}>
+                    <DeleteButton
+                        type="button"
+                        onClick={() => {
+                            console.log(id);
+                            dispatch(deleteItem(id));
+                        }}
+                    >
+                        <DeleteIcon />
+                    </DeleteButton>
+                    <ImageContainer>
+                        <img src={imageUrl} alt={name} />
+                    </ImageContainer>
+                    <ProductInfo>
+                        <Wrapper>
+                            <ItemName>{name}</ItemName>
+                            <PriceTag>{price} ₴</PriceTag>
+                        </Wrapper>
+                        <QuantitySelector
+                            type="number"
+                            value={quantity}
+                            InputProps={{
+                                inputProps: {
+                                    min: 1,
+                                },
+                            }}
+                            variant="filled"
+                            onChange={(e) => onQuantityChange(e, id)}
+                        />
+                    </ProductInfo>
+                </ProductItem>
+            ))}
         </SelectedProducts>
     );
 }

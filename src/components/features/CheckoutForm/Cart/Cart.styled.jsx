@@ -7,7 +7,8 @@ export const SelectedProducts = styled.ul`
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
-    row-gap: 20px;
+    row-gap: 10px;
+    align-content: start;
 
     padding-top: 10px;
     padding-bottom: 35px;

@@ -20,7 +20,7 @@
         }
     ],
 
-    "shop/1/price": [
+    "pharm1": [
         {
             "id": "1",
             "name": "Aspirin",
@@ -58,7 +58,7 @@
             "price": 108.99
         }
     ],
-    "shop/2/price": [
+    "pharm2": [
         {
             "id": "1",
             "name": "Sertofen",
@@ -96,7 +96,7 @@
             "price": 74.99
         }
     ],
-    "shop/3/price": [
+    "pharm3": [
         {
             "id": "19",
             "name": "Claritin",

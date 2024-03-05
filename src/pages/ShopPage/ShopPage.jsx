@@ -7,7 +7,6 @@ import shopApi from "../../redux/shop/api.js";
 
 export default function ShopPage() {
     const { data: shops, isFetching } = shopApi.useGetShopsQuery();
-    console.log(shops);
 
     return (
         <>

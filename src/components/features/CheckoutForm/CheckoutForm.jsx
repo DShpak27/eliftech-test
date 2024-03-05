@@ -4,6 +4,8 @@ import * as yup from "yup";
 import Cart from "./Cart";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useSelector } from "react-redux";
+import { getTotalPrice, getCartState } from "../../../redux/cart/selectors.js";
 
 const validationSchema = yup.object({
     name: yup
@@ -29,13 +31,17 @@ const validationSchema = yup.object({
 });
 
 export default function CheckoutForm() {
+    const totalPrice = useSelector(getTotalPrice);
+    const selectedProducts = useSelector(getCartState);
+    console.log(selectedProducts);
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm({
         resolver: yupResolver(validationSchema),
-        mode: "onTouched",
+        mode: "onChange",
     });
 
     const submitHandler = (data) => {
@@ -45,9 +51,9 @@ export default function CheckoutForm() {
     return (
         <Form onSubmit={handleSubmit(submitHandler)}>
             <CustomerDetails register={register} errors={errors} />
-            <Cart />
+            <Cart products={selectedProducts} />
             <SummaryAndSubmit>
-                <TotalPrice>Total price: 999 ₴</TotalPrice>
+                <TotalPrice>Total price: {totalPrice} ₴</TotalPrice>
                 <SubmitButton type="submit">Submit</SubmitButton>
             </SummaryAndSubmit>
         </Form>

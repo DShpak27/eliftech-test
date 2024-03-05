@@ -11,12 +11,14 @@ const shopApi = createApi({
                 url: "shops",
                 method: "GET",
             }),
+            providesTags: ["Shops"],
         }),
         getShopPrice: builder.query({
             query: (id) => ({
-                url: `shops/${id}/price`,
+                url: `pharm${id}`,
                 method: "GET",
             }),
+            providesTags: ["Price"],
         }),
     }),
 });

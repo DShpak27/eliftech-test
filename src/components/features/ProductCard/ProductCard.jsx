@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../../redux/cart/slice.js";
+import { getCartState } from "../../../redux/cart/selectors.js";
 import {
     CardBox,
     ImageHolder,
@@ -8,22 +13,36 @@ import {
     ProductName,
     AddIcon,
 } from "./ProductCard.styled.jsx";
+import { useLocation } from "react-router-dom";
 
-export default function ProductCard() {
+export default function ProductCard({ product }) {
+    const { id, name, imageUrl, price } = product;
+    const cart = useSelector(getCartState);
+    console.log(cart);
+
+    const {
+        state: { storeId, store },
+    } = useLocation();
+
+    const dispatch = useDispatch();
+
     return (
         <CardBox>
             <ImageHolder>
-                <img
-                    src="https://root.tblcdn.com/img/goods/0f5f3990-9bc6-40fc-bd92-feb83c45300d/1/img_0.jpg?v=AAAAAAn3YD4"
-                    alt="аспірин"
-                />
+                <img src={imageUrl} alt={name} />
             </ImageHolder>
             <DetailsHolder>
                 <ProductDetails>
-                    <ProductName>Aspirin</ProductName>
-                    <Price>25.60 ₴</Price>
+                    <ProductName>{name}</ProductName>
+                    <Price>{price} ₴</Price>
                 </ProductDetails>
-                <AddToCartButton>
+                <AddToCartButton
+                    onClick={() =>
+                        dispatch(
+                            addToCart({ id, name, price, quantity: 1, imageUrl, storeId, store })
+                        )
+                    }
+                >
                     Add to cart <AddIcon />
                 </AddToCartButton>
             </DetailsHolder>

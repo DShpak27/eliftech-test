@@ -9,7 +9,9 @@ export default function SideBar({ shops }) {
             <MenuList>
                 {shops.map(({ id, name }) => (
                     <MenuItem key={id}>
-                        <MenuLink to={id}>{name}</MenuLink>
+                        <MenuLink to={id} state={{ storeId: id, store: name }}>
+                            {name}
+                        </MenuLink>
                     </MenuItem>
                 ))}
             </MenuList>
