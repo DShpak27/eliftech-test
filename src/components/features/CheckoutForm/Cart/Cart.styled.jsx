@@ -34,7 +34,7 @@ export const ProductItem = styled.li`
 
     padding: 10px;
     border-radius: 10px;
-    border: 1px solid #caced1a0;
+    border: 1px solid #b5b9bcb0;
 
     background-color: #edf2f7;
 `;
@@ -48,7 +48,7 @@ export const ImageContainer = styled.div`
 
     border-radius: 10px;
     background-color: white;
-    border: 1px solid #c7cdd186;
+    border: 1px solid #bdc1c4ae;
 
     overflow: hidden;
 `;

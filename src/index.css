@@ -33,6 +33,21 @@ ol {
 img {
     display: block;
     width: 100%;
-    /* max-width: 100%; */
     height: auto;
+}
+
+::-webkit-scrollbar {
+    padding-top: 10px;
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-thumb {
+    cursor: grabbing;
+    background-color: #afaeae;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #959191;
 }

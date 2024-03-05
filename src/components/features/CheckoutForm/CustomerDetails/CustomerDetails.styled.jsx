@@ -25,6 +25,8 @@ export const Input = styled(TextField)`
     width: 100%;
     .MuiInputBase-root.MuiFilledInput-root {
         background-color: #f3f6f8;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
         .MuiInputBase-input.MuiFilledInput-input {
             color: rgba(0, 0, 0, 0.7);
             padding-top: 22px;

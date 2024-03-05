@@ -1,16 +1,14 @@
 import ReactDOM from "react-dom/client";
-// import { PersistGate } from "redux-persist/integration/react";
-// import { Provider } from "react-redux";
-// import { store, persistor } from "./redux/store.js";
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider } from "react-redux";
+import { store, persistor } from "./redux/store.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import ShopPage from "./pages/ShopPage";
 import CartPage from "./pages/CartPage";
 import ErrorPage from "./pages/ErrorPage";
 import WelcomePage from "./pages/ShopPage/WelcomePage";
-import PharmacyPage from "./pages/ShopPage/PharmacyPage";
-import ZdravitsaPage from "./pages/ShopPage/ZdravitsaPage";
-import MisterBlisterPage from "./pages/ShopPage/MisterBlisterPage";
+import CurrentShopPage from "./pages/ShopPage/CurrentShopPage";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -28,16 +26,8 @@ const router = createBrowserRouter([
                         element: <WelcomePage />,
                     },
                     {
-                        path: "pharmacy-911",
-                        element: <PharmacyPage />,
-                    },
-                    {
-                        path: "zdravitsa",
-                        element: <ZdravitsaPage />,
-                    },
-                    {
-                        path: "mister-blister",
-                        element: <MisterBlisterPage />,
+                        path: ":shopId",
+                        element: <CurrentShopPage />,
                     },
                 ],
             },
@@ -49,11 +39,10 @@ const router = createBrowserRouter([
     },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(<RouterProvider router={router} />);
-// ReactDOM.createRoot(document.getElementById("root")).render(
-//     <Provider store={store}>
-//         <PersistGate loading={null} persistor={persistor}>
-//             <RouterProvider router={router} />
-//         </PersistGate>
-//     </Provider>
-// );
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+            <RouterProvider router={router} />
+        </PersistGate>
+    </Provider>
+);
