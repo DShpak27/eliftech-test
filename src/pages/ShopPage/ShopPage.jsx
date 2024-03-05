@@ -1,16 +1,23 @@
-import { Suspense } from "react";
+import { toast } from "react-toastify";
+import shopApi from "../../redux/shop/api.js";
+import { Suspense, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import SideBar from "../../components/features/SideBar";
 import { Container } from "../../components/common/Container";
 import { ShopContent } from "./ShopPage.styled.jsx";
-import shopApi from "../../redux/shop/api.js";
+import SideBar from "../../components/features/SideBar";
 
 export default function ShopPage() {
-    const { data: shops, isFetching } = shopApi.useGetShopsQuery();
+    const { data: shops, isSuccess, isError, error } = shopApi.useGetShopsQuery();
+
+    useEffect(() => {
+        if (isError) {
+            toast.success(`(${error.status}) ${error.data}`);
+        }
+    }, [isError, error]);
 
     return (
         <>
-            {!isFetching && (
+            {isSuccess && (
                 <Container
                     style={{
                         height: "100%",
@@ -25,7 +32,7 @@ export default function ShopPage() {
                     </ShopContent>
                 </Container>
             )}
-            {isFetching && null}
+            {!isSuccess && null}
         </>
     );
 }

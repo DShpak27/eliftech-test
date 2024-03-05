@@ -10,6 +10,7 @@ const initialCartState = {
 //         price: 20.99,
 //         quantity: 2,
 //         store: "Store A",
+
 //     },
 
 export const cartSlice = createSlice({

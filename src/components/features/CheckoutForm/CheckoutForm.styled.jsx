@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Form = styled.form`
     width: 100%;
+
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: auto;

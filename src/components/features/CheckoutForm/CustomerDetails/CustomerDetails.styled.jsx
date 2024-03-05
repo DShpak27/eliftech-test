@@ -10,6 +10,7 @@ export const CustomerInfoFields = styled.div`
     padding-bottom: 35px;
     padding-left: 10px;
     padding-right: 10px;
+
     border-radius: 10px;
     border: 1px solid rgba(183, 174, 174, 0.35);
     background-color: #83b9ee40;
@@ -23,6 +24,7 @@ export const CustomerInfoFields = styled.div`
 
 export const Input = styled(TextField)`
     width: 100%;
+
     .MuiInputBase-root.MuiFilledInput-root {
         background-color: #f3f6f8;
         border-top-right-radius: 10px;

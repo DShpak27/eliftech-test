@@ -42,7 +42,5 @@ export default function CustomerDetails({ register, errors }) {
 
 CustomerDetails.propTypes = {
     register: PropTypes.func.isRequired,
-    errors: PropTypes.object.isRequired,
+    errors: PropTypes.object,
 };
-
-// errorMessage={errors?.phone?.message ?? ''}

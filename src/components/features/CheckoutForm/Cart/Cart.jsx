@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { deleteItem, changeQuantity } from "../../../../redux/cart/slice.js";
 import {
     SelectedProducts,
@@ -19,8 +19,8 @@ export default function Cart({ products }) {
     const dispatch = useDispatch();
 
     const onQuantityChange = (e, id) => {
-        if (Number(e.target.value) < 1) {
-            dispatch(changeQuantity({ id, newQuantity: 1 }));
+        if (Number(e.target.value) > 100) {
+            dispatch(changeQuantity({ id, newQuantity: 100 }));
             return;
         }
         dispatch(changeQuantity({ id, newQuantity: Number(e.target.value) }));
@@ -36,35 +36,35 @@ export default function Cart({ products }) {
 
     return (
         <SelectedProducts>
-            {products.map(({ id, name, price, quantity, imageUrl }) => (
-                <ProductItem key={id}>
+            {products.map((product) => (
+                <ProductItem key={product.id}>
                     <DeleteButton
                         type="button"
                         onClick={() => {
-                            console.log(id);
-                            dispatch(deleteItem(id));
+                            dispatch(deleteItem(product.id));
+                            toast.success(`"${product.name}" removed from cart.`);
                         }}
                     >
                         <DeleteIcon />
                     </DeleteButton>
                     <ImageContainer>
-                        <img src={imageUrl} alt={name} />
+                        <img src={product.imageUrl} alt={product.name} />
                     </ImageContainer>
                     <ProductInfo>
                         <Wrapper>
-                            <ItemName>{name}</ItemName>
-                            <PriceTag>{price} ₴</PriceTag>
+                            <ItemName>{product.name}</ItemName>
+                            <PriceTag>{product.price} ₴</PriceTag>
                         </Wrapper>
                         <QuantitySelector
                             type="number"
-                            value={quantity}
+                            value={product.quantity}
                             InputProps={{
                                 inputProps: {
                                     min: 1,
                                 },
                             }}
                             variant="filled"
-                            onChange={(e) => onQuantityChange(e, id)}
+                            onChange={(e) => onQuantityChange(e, product.id)}
                         />
                     </ProductInfo>
                 </ProductItem>
@@ -72,3 +72,17 @@ export default function Cart({ products }) {
         </SelectedProducts>
     );
 }
+
+Cart.propTypes = {
+    products: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            imageUrl: PropTypes.string.isRequired,
+            price: PropTypes.number.isRequired,
+            quantity: PropTypes.number.isRequired,
+            storeId: PropTypes.string.isRequired,
+            store: PropTypes.string.isRequired,
+        })
+    ).isRequired,
+};

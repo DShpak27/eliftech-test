@@ -5,6 +5,10 @@ export function getTotalQuantity(state) {
     const { products } = state.cart;
     return products.reduce((total, product) => total + product.quantity, 0);
 }
+export function getTotalAssortmentQuantity(state) {
+    const { products } = state.cart;
+    return products.length;
+}
 export function getTotalPrice(state) {
     const { products } = state.cart;
     return products

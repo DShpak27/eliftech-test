@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+import PropTypes from "prop-types";
 import { SideMenu, MenuTitle, MenuList, MenuItem, MenuLink } from "./SideBar.styled.jsx";
 
 export default function SideBar({ shops }) {
@@ -18,3 +17,12 @@ export default function SideBar({ shops }) {
         </SideMenu>
     );
 }
+
+SideBar.propTypes = {
+    shops: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+        })
+    ).isRequired,
+};

@@ -22,15 +22,4 @@ export const ProductList = styled.ul`
         grid-template-columns: 1fr 1fr 1fr;
         overflow-y: auto;
     }
-    /* @media screen and (min-width: 768px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 100%;
-        gap: 8px;
-        overflow-y: auto;
-    } */
-
-    /* display: flex;
-    flex-direction: column;
-    gap: 10px; */
 `;

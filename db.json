@@ -60,37 +60,37 @@
     ],
     "pharm2": [
         {
-            "id": "1",
+            "id": "7",
             "name": "Sertofen",
             "imageUrl": "https://i.imgur.com/qYaOzoA.jpg",
             "price": 122.99
         },
         {
-            "id": "2",
+            "id": "8",
             "name": "Azapin",
             "imageUrl": "https://i.imgur.com/ze3k6Db.jpeg",
             "price": 119.49
         },
         {
-            "id": "3",
+            "id": "9",
             "name": "Risperon",
             "imageUrl": "https://i.imgur.com/gR37Q46.jpg",
             "price": 134.99
         },
         {
-            "id": "4",
+            "id": "10",
             "name": "Augmentin",
             "imageUrl": "https://i.imgur.com/Y19QZPy.jpeg",
             "price": 627.99
         },
         {
-            "id": "5",
+            "id": "11",
             "name": "Novopasit",
             "imageUrl": "https://i.imgur.com/fajZCYv.jpg",
             "price": 60.49
         },
         {
-            "id": "6",
+            "id": "12",
             "name": "Quait",
             "imageUrl": "https://i.imgur.com/QpW1Spz.jpg",
             "price": 74.99
@@ -98,7 +98,7 @@
     ],
     "pharm3": [
         {
-            "id": "19",
+            "id": "13",
             "name": "Claritin",
             "imageUrl": "https://i.imgur.com/B93R3yo.jpeg",
             "price": 299.99

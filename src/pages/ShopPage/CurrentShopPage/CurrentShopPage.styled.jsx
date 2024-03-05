@@ -1,27 +1,29 @@
 import styled from "@emotion/styled";
+import { BsSortNumericDown } from "react-icons/bs";
+import { BsSortNumericUp } from "react-icons/bs";
 
-export const ShopSection = styled.ShopSection`
-    padding: 20px 25px;
-    border-radius: 10px;
-
-    background-color: #e0e8f6;
-`;
-
-export const Title = styled.h1`
-    margin-bottom: 16px;
-
-    text-align: center;
-    font-size: 20px;
-`;
-
-export const CardList = styled.ul`
+export const SortButtonsWrapper = styled.div`
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-`;
+    column-gap: 8px;
+    justify-content: center;
+    align-items: center;
 
-export const Card = styled.li`
-    width: 100%;
-    height: 300px;
-    background-color: #2e57c9;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translate(0%, -50%);
+`;
+export const SortDownIcon = styled(BsSortNumericDown)`
+    display: block;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
+export const SortUpIcon = styled(BsSortNumericUp)`
+    display: block;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;

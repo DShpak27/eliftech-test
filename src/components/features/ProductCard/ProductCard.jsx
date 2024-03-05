@@ -1,8 +1,9 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { addToCart } from "../../../redux/cart/slice.js";
-import { getCartState } from "../../../redux/cart/selectors.js";
+import { changeFavoritesStatus } from "../../../redux/favorites/slice.js";
 import {
     CardBox,
     ImageHolder,
@@ -12,24 +13,25 @@ import {
     Price,
     ProductName,
     AddIcon,
+    FavoritesIconWrapper,
+    FavoriteIcon,
+    NonFavoriteIcon,
 } from "./ProductCard.styled.jsx";
-import { useLocation } from "react-router-dom";
 
 export default function ProductCard({ product }) {
-    const { id, name, imageUrl, price } = product;
-    const cart = useSelector(getCartState);
-    console.log(cart);
-
+    const { id, name, imageUrl, price, isInFavorites } = product;
     const {
         state: { storeId, store },
     } = useLocation();
-
     const dispatch = useDispatch();
 
     return (
         <CardBox>
             <ImageHolder>
                 <img src={imageUrl} alt={name} />
+                <FavoritesIconWrapper onClick={() => dispatch(changeFavoritesStatus({ id, name }))}>
+                    {isInFavorites ? <FavoriteIcon /> : <NonFavoriteIcon />}
+                </FavoritesIconWrapper>
             </ImageHolder>
             <DetailsHolder>
                 <ProductDetails>
@@ -37,11 +39,20 @@ export default function ProductCard({ product }) {
                     <Price>{price} ₴</Price>
                 </ProductDetails>
                 <AddToCartButton
-                    onClick={() =>
+                    onClick={() => {
                         dispatch(
-                            addToCart({ id, name, price, quantity: 1, imageUrl, storeId, store })
-                        )
-                    }
+                            addToCart({
+                                id,
+                                name,
+                                price,
+                                quantity: 1,
+                                imageUrl,
+                                storeId,
+                                store,
+                            })
+                        );
+                        toast.success(`"${name}" added to cart.`);
+                    }}
                 >
                     Add to cart <AddIcon />
                 </AddToCartButton>
@@ -49,3 +60,16 @@ export default function ProductCard({ product }) {
         </CardBox>
     );
 }
+
+ProductCard.propTypes = {
+    product: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        quantity: PropTypes.number.isRequired,
+        isInFavorites: PropTypes.boolean.isRequired,
+        storeId: PropTypes.string.isRequired,
+        store: PropTypes.string.isRequired,
+    }).isRequired,
+};

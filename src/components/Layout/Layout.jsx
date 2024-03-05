@@ -1,7 +1,9 @@
+import { ToastContainer } from "react-toastify";
 import { Suspense, useEffect } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import Header from "./Header";
 import { Main } from "./Layout.styled.jsx";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Layout() {
     const { pathname } = useLocation();
@@ -19,6 +21,7 @@ export default function Layout() {
                     <Outlet />
                 </Suspense>
             </Main>
+            <ToastContainer autoClose={2000} closeOnClick={true} pauseOnHover={false} />
         </>
     );
 }

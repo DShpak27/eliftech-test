@@ -20,6 +20,7 @@ export const NavBar = styled.nav`
 `;
 
 export const Link = styled(NavLink)`
+    position: relative;
     height: 45px;
     width: 75px;
 
@@ -75,4 +76,23 @@ export const CartIcon = styled(Icon)`
     @media screen and (min-width: 768px) {
         font-size: 20px;
     }
+`;
+
+export const CartIndicator = styled.div`
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 24px;
+    height: 24px;
+    background-color: #f44336;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
 `;
