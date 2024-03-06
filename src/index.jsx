@@ -11,33 +11,36 @@ import WelcomePage from "./pages/ShopPage/WelcomePage";
 import CurrentShopPage from "./pages/ShopPage/CurrentShopPage";
 import "./index.css";
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Layout />,
-        errorElement: <ErrorPage />,
-        children: [
-            {
-                path: "shop",
-                element: <ShopPage />,
-                children: [
-                    {
-                        index: true,
-                        element: <WelcomePage />,
-                    },
-                    {
-                        path: ":shopId",
-                        element: <CurrentShopPage />,
-                    },
-                ],
-            },
-            {
-                path: "shopping-cart",
-                element: <CartPage />,
-            },
-        ],
-    },
-]);
+const router = createBrowserRouter(
+    [
+        {
+            path: "/",
+            element: <Layout />,
+            errorElement: <ErrorPage />,
+            children: [
+                {
+                    path: "shop",
+                    element: <ShopPage />,
+                    children: [
+                        {
+                            index: true,
+                            element: <WelcomePage />,
+                        },
+                        {
+                            path: ":shopId",
+                            element: <CurrentShopPage />,
+                        },
+                    ],
+                },
+                {
+                    path: "shopping-cart",
+                    element: <CartPage />,
+                },
+            ],
+        },
+    ],
+    { basename: "/eliftech-test" }
+);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
