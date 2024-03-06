@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const shopApi = createApi({
     reducerPath: "shop",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:3000/",
+        baseUrl: "https://eliftech-back-on7b.onrender.com/",
     }),
     endpoints: (builder) => ({
         getShops: builder.query({
