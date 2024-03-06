@@ -8,14 +8,14 @@ const shopApi = createApi({
     endpoints: (builder) => ({
         getShops: builder.query({
             query: () => ({
-                url: "shops",
+                url: "pharms",
                 method: "GET",
             }),
             providesTags: ["Shops"],
         }),
         getShopPrice: builder.query({
             query: (id) => ({
-                url: `pharm${id}`,
+                url: `pharms/${id}/prices`,
                 method: "GET",
             }),
             providesTags: ["Price"],

@@ -11,7 +11,7 @@ export default function ShopPage() {
 
     useEffect(() => {
         if (isError) {
-            toast.success(`(${error.status}) ${error.data}`);
+            toast.error(`(${error.status}) ${error.data}`);
         }
     }, [isError, error]);
 
