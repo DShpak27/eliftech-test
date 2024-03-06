@@ -11,7 +11,7 @@ export const SelectedProducts = styled.ul`
     align-content: start;
 
     padding-top: 10px;
-    padding-bottom: 35px;
+    padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
 
@@ -22,6 +22,9 @@ export const SelectedProducts = styled.ul`
     @media screen and (min-width: 768px) {
         padding-bottom: 10px;
         overflow-y: auto;
+    }
+    @media screen and (min-width: 1440px) {
+        padding: 16px;
     }
 `;
 

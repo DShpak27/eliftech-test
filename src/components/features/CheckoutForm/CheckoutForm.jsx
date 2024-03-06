@@ -1,8 +1,12 @@
+import { toast } from "react-toastify";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getTotalPrice, getCartState } from "../../../redux/cart/selectors.js";
+import { resetCart } from "../../../redux/cart/slice.js";
+import { useEffect } from "react";
+import orderApi from "../../../redux/order/api.js";
 import Cart from "./Cart";
 import CustomerDetails from "./CustomerDetails";
 import { Form, SubmitButton, SummaryAndSubmit, TotalPrice } from "./CheckoutForm.styled.jsx";
@@ -33,18 +37,40 @@ const validationSchema = yup.object({
 export default function CheckoutForm() {
     const totalPrice = useSelector(getTotalPrice);
     const selectedProducts = useSelector(getCartState);
+    const dispatch = useDispatch();
+
+    const [placeOrder, { isError, error, isSuccess }] = orderApi.usePlaceOrderMutation();
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isValid },
+        reset,
     } = useForm({
         resolver: yupResolver(validationSchema),
         mode: "onChange",
     });
 
+    useEffect(() => {
+        if (isError) {
+            toast.error(`(${error.status}) ${error.data}`);
+            return;
+        }
+        if (isSuccess) {
+            toast.success("Your order has been placed");
+            reset();
+            dispatch(resetCart());
+        }
+    }, [isError, error, isSuccess, reset, dispatch]);
+
     const submitHandler = (data) => {
-        console.log(data);
+        const orderBody = {
+            customer: {
+                ...data,
+            },
+            items: [...selectedProducts],
+        };
+        placeOrder(orderBody);
     };
 
     return (
@@ -53,7 +79,9 @@ export default function CheckoutForm() {
             <Cart products={selectedProducts} />
             <SummaryAndSubmit>
                 <TotalPrice>Total price: {totalPrice} ₴</TotalPrice>
-                <SubmitButton type="submit">Submit</SubmitButton>
+                <SubmitButton type="submit" disabled={!isValid || !Number(totalPrice)}>
+                    Submit
+                </SubmitButton>
             </SummaryAndSubmit>
         </Form>
     );

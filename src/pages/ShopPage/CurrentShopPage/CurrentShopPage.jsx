@@ -28,8 +28,14 @@ export default function CurrentShopPage() {
         }
     }, [isError, error]);
 
-    const addFavoriteStatusToProducts = () => {
-        if (!favorites.length) return products;
+    const makeProductsWithFavoriteStatus = () => {
+        if (!favorites.length) {
+            return products.map((product) => ({
+                ...product,
+                isInFavorites: false,
+            }));
+        }
+
         return products.map((product) => ({
             ...product,
             isInFavorites: favorites.some((favorite) => favorite.id === product.id),
@@ -44,9 +50,9 @@ export default function CurrentShopPage() {
             return isSortedAscending ? a.price - b.price : b.price - a.price;
         };
         if (isSortedAscending || isSortedDescending) {
-            return [...addFavoriteStatusToProducts()].sort(compare);
+            return [...makeProductsWithFavoriteStatus()].sort(compare);
         }
-        return addFavoriteStatusToProducts();
+        return makeProductsWithFavoriteStatus();
     };
 
     const manageProductSorting = (e) => {
@@ -66,14 +72,14 @@ export default function CurrentShopPage() {
                             <SortUpIcon
                                 size={22}
                                 type="button"
-                                color={isSortedAscending ? "#434ec5" : "rgba(0, 0, 0, 0.7)"}
+                                color={isSortedAscending ? "#db1b4e" : "rgba(0, 0, 0, 0.7)"}
                                 data-action="sortUp"
                                 onClick={(e) => manageProductSorting(e)}
                             ></SortUpIcon>
                             <SortDownIcon
                                 size={22}
                                 type="button"
-                                color={isSortedDescending ? "#434ec5" : "rgba(0, 0, 0, 0.7)"}
+                                color={isSortedDescending ? "#db1b4e" : "rgba(0, 0, 0, 0.7)"}
                                 data-action="sortDown"
                                 onClick={(e) => manageProductSorting(e)}
                             ></SortDownIcon>

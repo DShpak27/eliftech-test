@@ -16,6 +16,10 @@ export const CardBox = styled.article`
 
     background-color: #edf2f7;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+
+    @media screen and (max-width: 767.98px) {
+        padding: 25px;
+    }
 `;
 
 export const ImageHolder = styled.div`
@@ -24,12 +28,18 @@ export const ImageHolder = styled.div`
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     border-radius: 10px;
     background-color: white;
     border: 1px solid #e1e8ecdc;
 
     overflow: hidden;
+
+    @media screen and (min-width: 1024px) {
+        min-height: 240px;
+        max-height: 250px;
+    }
 `;
 
 export const DetailsHolder = styled.div`
@@ -46,7 +56,8 @@ export const ProductDetails = styled.div`
 `;
 
 export const ProductName = styled.span`
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 500;
 `;
 
 export const Price = styled.span`
@@ -83,8 +94,7 @@ export const AddToCartButton = styled.button`
     cursor: pointer;
     transition: all 250ms;
 
-    &:hover,
-    &:focus {
+    &:hover {
         background-color: #f59c02;
         border-color: #f59c02;
     }
@@ -117,5 +127,11 @@ export const NonFavoriteIcon = styled(MdFavoriteBorder)`
 
     &:hover {
         color: #ff005d;
+    }
+`;
+
+export const Img = styled.img`
+    @media screen and (min-width: 1440px) {
+        max-width: 240px;
     }
 `;

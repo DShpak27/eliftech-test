@@ -48,7 +48,7 @@ export default function Cart({ products }) {
                         <DeleteIcon />
                     </DeleteButton>
                     <ImageContainer>
-                        <img src={product.imageUrl} alt={product.name} />
+                        <img loading="lazy" src={product.imageUrl} alt={product.name} />
                     </ImageContainer>
                     <ProductInfo>
                         <Wrapper>

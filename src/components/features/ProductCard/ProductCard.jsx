@@ -16,6 +16,7 @@ import {
     FavoritesIconWrapper,
     FavoriteIcon,
     NonFavoriteIcon,
+    Img,
 } from "./ProductCard.styled.jsx";
 
 export default function ProductCard({ product }) {
@@ -28,9 +29,9 @@ export default function ProductCard({ product }) {
     return (
         <CardBox>
             <ImageHolder>
-                <img src={imageUrl} alt={name} />
+                <Img src={imageUrl} alt={name} loading="lazy" />
                 <FavoritesIconWrapper onClick={() => dispatch(changeFavoritesStatus({ id, name }))}>
-                    {isInFavorites ? <FavoriteIcon /> : <NonFavoriteIcon />}
+                    {isInFavorites ? <FavoriteIcon /> : <NonFavoriteIcon style={{ opacity: 1 }} />}
                 </FavoritesIconWrapper>
             </ImageHolder>
             <DetailsHolder>
@@ -67,9 +68,9 @@ ProductCard.propTypes = {
         name: PropTypes.string.isRequired,
         imageUrl: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
-        quantity: PropTypes.number.isRequired,
-        isInFavorites: PropTypes.boolean.isRequired,
-        storeId: PropTypes.string.isRequired,
-        store: PropTypes.string.isRequired,
+        storeId: PropTypes.string,
+        store: PropTypes.string,
+        quantity: PropTypes.number,
+        isInFavorites: PropTypes.bool,
     }).isRequired,
 };

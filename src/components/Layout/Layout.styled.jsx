@@ -5,6 +5,6 @@ export const Main = styled.main`
     width: 100%;
     overflow-y: auto;
 
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 `;

@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import { TiShoppingCart as Icon } from "react-icons/ti";
 
 export const SiteHeader = styled.header`
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     background-color: #e0e8f6;
 `;

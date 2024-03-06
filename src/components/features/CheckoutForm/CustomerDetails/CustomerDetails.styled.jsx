@@ -20,6 +20,9 @@ export const CustomerInfoFields = styled.div`
         padding-bottom: 10px;
         row-gap: 45px;
     }
+    @media screen and (min-width: 1440px) {
+        padding: 16px;
+    }
 `;
 
 export const Input = styled(TextField)`

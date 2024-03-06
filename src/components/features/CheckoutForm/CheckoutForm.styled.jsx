@@ -12,8 +12,8 @@ export const Form = styled.form`
         height: 100%;
         width: 100%;
 
-        grid-template-columns: 60% 1fr;
-        grid-template-rows: auto auto;
+        grid-template-columns: 50% 1fr;
+        grid-template-rows: auto 60px;
         column-gap: 10px;
         row-gap: 10px;
     }
@@ -70,5 +70,20 @@ export const SubmitButton = styled.button`
         cursor: pointer;
         background-color: #f59c02;
         border-color: #f59c02;
+    }
+
+    &:disabled {
+        background-color: #ccc;
+        color: #666;
+        border-color: #999;
+        cursor: not-allowed;
+        box-shadow: none;
+        opacity: 0.6;
+
+        &:hover,
+        &:focus {
+            background-color: #ccc;
+            border-color: #999;
+        }
     }
 `;

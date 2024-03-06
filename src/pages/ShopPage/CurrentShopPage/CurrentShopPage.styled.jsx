@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
+import { BsSortNumericDownAlt } from "react-icons/bs";
 import { BsSortNumericDown } from "react-icons/bs";
-import { BsSortNumericUp } from "react-icons/bs";
 
 export const SortButtonsWrapper = styled.div`
     display: flex;
@@ -12,15 +12,19 @@ export const SortButtonsWrapper = styled.div`
     top: 50%;
     right: 8px;
     transform: translate(0%, -50%);
+
+    @media screen and (max-width: 400px) {
+        right: -23px;
+    }
 `;
-export const SortDownIcon = styled(BsSortNumericDown)`
+export const SortDownIcon = styled(BsSortNumericDownAlt)`
     display: block;
 
     &:hover {
         cursor: pointer;
     }
 `;
-export const SortUpIcon = styled(BsSortNumericUp)`
+export const SortUpIcon = styled(BsSortNumericDown)`
     display: block;
 
     &:hover {
