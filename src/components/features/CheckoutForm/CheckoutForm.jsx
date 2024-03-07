@@ -4,12 +4,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { getTotalPrice, getCartState } from "../../../redux/cart/selectors.js";
+import { useState, useRef, useCallback } from "react";
 import { resetCart } from "../../../redux/cart/slice.js";
 import { useEffect } from "react";
 import orderApi from "../../../redux/order/api.js";
 import Cart from "./Cart";
 import CustomerDetails from "./CustomerDetails";
-import { Form, SubmitButton, SummaryAndSubmit, TotalPrice } from "./CheckoutForm.styled.jsx";
+import {
+    Form,
+    SubmitButton,
+    SummaryAndSubmit,
+    TotalPrice,
+    CaptchaHolder,
+    Recaptcha,
+} from "./CheckoutForm.styled.jsx";
 
 const validationSchema = yup.object({
     name: yup
@@ -35,11 +43,18 @@ const validationSchema = yup.object({
 });
 
 export default function CheckoutForm() {
-    const totalPrice = useSelector(getTotalPrice);
-    const selectedProducts = useSelector(getCartState);
-    const dispatch = useDispatch();
+    const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
-    const [placeOrder, { isError, error, isSuccess }] = orderApi.usePlaceOrderMutation();
+    const selectedProducts = useSelector(getCartState);
+    const totalPrice = useSelector(getTotalPrice);
+    const dispatch = useDispatch();
+    const recaptcha = useRef();
+
+    const [placeOrder, { isLoading, isError, error, isSuccess }] = orderApi.usePlaceOrderMutation();
+
+    const onCaptchaChange = useCallback(() => {
+        setIsCaptchaVerified(true);
+    }, []);
 
     const {
         register,
@@ -77,9 +92,20 @@ export default function CheckoutForm() {
         <Form onSubmit={handleSubmit(submitHandler)}>
             <CustomerDetails register={register} errors={errors} />
             <Cart products={selectedProducts} />
+            <CaptchaHolder>
+                <Recaptcha
+                    ref={recaptcha}
+                    sitekey={import.meta.env.VITE_SITE_KEY}
+                    onChange={onCaptchaChange}
+                    size="normal"
+                />
+            </CaptchaHolder>
             <SummaryAndSubmit>
                 <TotalPrice>Total price: {totalPrice} ₴</TotalPrice>
-                <SubmitButton type="submit" disabled={!isValid || !Number(totalPrice)}>
+                <SubmitButton
+                    type="submit"
+                    disabled={!isValid || !Number(totalPrice) || !isCaptchaVerified || isLoading}
+                >
                     Submit
                 </SubmitButton>
             </SummaryAndSubmit>

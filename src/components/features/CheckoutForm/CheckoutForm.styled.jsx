@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export const Form = styled.form`
     width: 100%;
@@ -31,11 +32,8 @@ export const SummaryAndSubmit = styled.div`
     border-radius: 10px;
     border: 1px solid rgba(183, 174, 174, 0.35);
     background-color: #83b9ee40;
-
-    @media screen and (min-width: 768px) {
-        grid-column: 2/3;
-    }
 `;
+
 export const TotalPrice = styled.span`
     font-size: 16px;
     font-weight: 600;
@@ -86,4 +84,23 @@ export const SubmitButton = styled.button`
             border-color: #999;
         }
     }
+`;
+
+export const CaptchaHolder = styled.div`
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    max-width: 300px;
+    height: 60px;
+
+    border: 1px solid rgba(183, 174, 174, 0.527);
+`;
+export const Recaptcha = styled(ReCAPTCHA)`
+    position: relative;
+    top: -2px;
+    left: 2px;
 `;
