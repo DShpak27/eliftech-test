@@ -1,4 +1,4 @@
-import{n as e,G as m,z as b,m as S,j as t,A as I,D as z,B as w,r as g,E as F,q as M,s as P}from"./index-CK0kk-Fv.js";import{S as k,T as D}from"./Title.styled-BmSlnO5g.js";import{P as n}from"./index-DdQAP3K3.js";import{a as B,b as q}from"./index-B8KVHzIT.js";function A(o){return o.favorite.favorites}const R=e.ul`
+import{n as e,G as m,z as b,m as S,j as t,A as I,D as z,B as w,r as g,E as F,q as M,s as P}from"./index-Uu0ZJMbR.js";import{S as k,T as D}from"./Title.styled-BWqckTZ1.js";import{P as n}from"./index-B9TU3IEB.js";import{a as B,b as q}from"./index-BygJyZFV.js";function A(o){return o.favorite.favorites}const R=e.ul`
     width: calc(100%+25px * 2);
 
     display: grid;
