@@ -13,10 +13,6 @@ export const OrderRequestForm = styled.form`
     justify-content: center;
     align-items: center;
     column-gap: 15px;
-
-    @media screen and (min-width: 768px) {
-        width: 550px;
-    }
 `;
 export const SubmitButton = styled.button`
     max-width: 130px;
