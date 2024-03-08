@@ -66,4 +66,8 @@ export const EmailInput = styled(TextField)`
         line-height: 1.25;
         top: 101%;
     }
+
+    @media screen and (min-width: 768px) {
+        width: 500px;
+    }
 `;
