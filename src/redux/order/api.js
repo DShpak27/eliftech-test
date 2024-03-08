@@ -5,13 +5,22 @@ const orderApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "https://eliftech-back-on7b.onrender.com/",
     }),
+    tagTypes: ["Orders"],
     endpoints: (builder) => ({
+        getOrders: builder.query({
+            query: (email) => ({
+                url: `orders?email=${email}`,
+                method: "GET",
+            }),
+            providesTags: ["Orders"],
+        }),
         placeOrder: builder.mutation({
             query: (body) => ({
                 url: "orders",
                 method: "POST",
                 body,
             }),
+            providesTags: ["Orders"],
         }),
     }),
 });

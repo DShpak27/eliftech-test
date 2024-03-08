@@ -80,6 +80,7 @@ export default function CheckoutForm() {
 
     const submitHandler = (data) => {
         const orderBody = {
+            totalPrice,
             customer: {
                 ...data,
             },

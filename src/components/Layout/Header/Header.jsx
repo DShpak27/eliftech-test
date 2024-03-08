@@ -5,6 +5,7 @@ import {
     LinkText,
     CartIcon,
     CartIndicator,
+    Wrapper,
 } from "./Header.styled.jsx";
 import { Container } from "../../common/Container";
 import { useSelector } from "react-redux";
@@ -17,7 +18,10 @@ export default function Header() {
         <SiteHeader>
             <Container>
                 <NavBar>
-                    <NavLink to="/shop">Shop</NavLink>
+                    <Wrapper>
+                        <NavLink to="/shop">Shop</NavLink>
+                        <NavLink to="/history">History</NavLink>
+                    </Wrapper>
                     <NavLink to="/shopping-cart">
                         <LinkText>Shopping Cart</LinkText>
                         <CartIcon />

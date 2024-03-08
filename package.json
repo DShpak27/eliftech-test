@@ -5,10 +5,10 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist",
         "start": "vite",
+        "deploy": "gh-pages -d dist",
         "build": "vite build",
+        "predeploy": "npm run build",
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
     },
     "dependencies": {
@@ -17,6 +17,7 @@
         "@hookform/resolvers": "^3.3.4",
         "@mui/material": "^5.15.11",
         "@reduxjs/toolkit": "^2.2.1",
+        "framer-motion": "^11.0.8",
         "modern-normalize": "^2.0.0",
         "prop-types": "^15.8.1",
         "react": "^18.2.0",

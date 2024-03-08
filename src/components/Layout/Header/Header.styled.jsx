@@ -96,3 +96,8 @@ export const CartIndicator = styled.div`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
     font-weight: bold;
 `;
+export const Wrapper = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 12px;
+`;

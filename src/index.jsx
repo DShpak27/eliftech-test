@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import ShopPage from "./pages/ShopPage";
 import CartPage from "./pages/CartPage";
+import HistoryPage from "./pages/HistoryPage";
 import ErrorPage from "./pages/ErrorPage";
 import WelcomePage from "./pages/ShopPage/WelcomePage";
 import CurrentShopPage from "./pages/ShopPage/CurrentShopPage";
@@ -35,6 +36,10 @@ const router = createBrowserRouter(
                 {
                     path: "shopping-cart",
                     element: <CartPage />,
+                },
+                {
+                    path: "history",
+                    element: <HistoryPage />,
                 },
             ],
         },
