@@ -107,6 +107,7 @@ export default function CurrentShopPage() {
                 key={product.id}
                 product={product}
                 storeName={storeData.name}
+                storeId={storeData.id}
               />
             ))}
           </ProductList>

@@ -18,8 +18,8 @@ import {
   Img,
 } from './ProductCard.styled.jsx';
 
-export default function ProductCard({ product, storeName }) {
-  const { id, name, imageUrl, price, isInFavorites, storeId } = product;
+export default function ProductCard({ product, storeName, storeId }) {
+  const { id, name, imageUrl, price, isInFavorites } = product;
   const dispatch = useDispatch();
 
   return (
@@ -66,6 +66,7 @@ export default function ProductCard({ product, storeName }) {
 
 ProductCard.propTypes = {
   storeName: PropTypes.string,
+  storeId: PropTypes.string,
   product: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
