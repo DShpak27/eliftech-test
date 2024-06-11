@@ -1,4 +1,4 @@
-import{n as e}from"./index-qIIquIu2.js";const n=e.section`
+import{n as e}from"./index-C-ceL-4P.js";const n=e.section`
     padding: 20px 25px;
 
     border-radius: 10px;
